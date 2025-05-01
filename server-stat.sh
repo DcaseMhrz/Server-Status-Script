@@ -5,9 +5,11 @@
 # Total CPU usage (user + system)
 cpu_usage() {
   # Extract idle percentage and subtract from 100 using awk (no bc dependency)
-  local idle usage
+  local idle usage 
+
+  #getting the cpu details using top -bn1 making it non interactive and getting the 8th column
   idle=$(top -bn1 | awk '/Cpu\(s\):/ {gsub(",", ".", $8); print $8}')
-  usage=$(awk "BEGIN {printf \"%.2f\", 100 - $idle}")
+  usage=$(awk "BEGIN {printf \"%.2f\", 100 - $idle}") #subtracting the total free space to 100% to get total usage
   printf "Total CPU Usage: %s%%\n" "$usage"
 }
 
