@@ -63,7 +63,3 @@ mem_usage
 disk_usage
 top_cpu_processes
 top_mem_processes
-# Uncomment below for stretch stats
-#os_info
-#logged_users
-#failed_logins
